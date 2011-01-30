@@ -15,6 +15,17 @@ Basic Usage
 		});
 	});
 
+Options
+---
+	boolean Connection.prototype.options.bufferRows
+Decides, if rows should get buffered
+
+	{0, 1, 2} Connection.prototype.options.fetchMode
+Decides the fetchmode.
+	- 0 ... Fetch numeric. Just a basic array. Accessible through row[0]
+	- 1 ... Fetch assoc. An object, every column is a key. Accessible through row['column']
+	- 2 ... Fetch array. A combination of the two above. Accessible through both ways.
+
 API
 ---
 	Connection([string user[, string password[, string host[, number port]]]])
@@ -23,17 +34,18 @@ Creates a connection and tries to connect/authorize to the database
 	Connection.prototype.connect()
 Connects to the database, if the first attempt wasn't successful/the connection got destroyed
 
-	Connection.prototype.close(function(string err, ParseablePacket pp) callback)
-Closes the connection to the database through the mysql_close command. Fires off callback, after a result.
+	Connection.prototype.close(function(string err, ParseablePacket pp) listener)
+Closes the connection to the database through the mysql_close command. Fires off listener, after a result.
 
 	Connection.prototype.destroy()
 Destroys the socket to the database immediatly. No more reads/writes will be possible.
 
-	Connection.prototype.selectDb(string db, function(string err, ParseablePacket pp) callback)
-Selects a database. Fires off callback after a result of the database.
+	Connection.prototype.selectDb(string db, function(string err, ParseablePacket pp) listener)
+Selects a database. Fires off listener after a result of the database.
 
-	Connection.prototype.query(string cmd, function(string err, ParseablePacket pp) callback)
-Sends a query to the database. Fires off callback after a result of the database.
+	Connection.prototype.query(string cmd, function(string err, Array.<Object.<*>> rows) listener, function(ColumnPacket cp) columnCb, function(Object.<*> data) rowCb)
+Sends a query to the database. Fires off listener after a full result/error of the database. If no error occured and buffering rows is activated, rows contains every row.
+Fires columnCb for every received column entry; fires rowCb for every received row.
 
 
 
