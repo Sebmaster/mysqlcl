@@ -57,4 +57,4 @@ Fired, when all querys are executed and all result sets are received.
 Fired, when the authentication was successful.
 
 	error
-Fired, when the authentication wasn't successful (will maybe have more meanings; for example when the connection is destroyed/not accesible anymore)
+Fired, when the authentication wasn't successful (will maybe have more meanings; for example when the connection is destroyed/not accessible anymore)
