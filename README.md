@@ -22,9 +22,9 @@ Decides, if rows should get buffered
 
 	{0, 1, 2} Connection.prototype.options.fetchMode
 Decides the fetchmode.
-	- 0 ... Fetch numeric. Just a basic array. Accessible through row[0]
-	- 1 ... Fetch assoc. An object, every column is a key. Accessible through row['column']
-	- 2 ... Fetch array. A combination of the two above. Accessible through both ways.
+* 0 ... Fetch numeric. Just a basic array. Accessible through row[0]
+* 1 ... Fetch assoc. An object, every column is a key. Accessible through row['column']
+* 2 ... Fetch array. A combination of the two above. Accessible through both ways.
 
 API
 ---
@@ -46,8 +46,6 @@ Selects a database. Fires off listener after a result of the database.
 	Connection.prototype.query(string cmd, function(string err, Array.<Object.<*>> rows) listener, function(ColumnPacket cp) columnCb, function(Object.<*> data) rowCb)
 Sends a query to the database. Fires off listener after a full result/error of the database. If no error occured and buffering rows is activated, rows contains every row.
 Fires columnCb for every received column entry; fires rowCb for every received row.
-
-
 
 Events
 ---
