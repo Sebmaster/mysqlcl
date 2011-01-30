@@ -17,33 +17,33 @@ Basic Usage
 
 API
 ---
-Connection([string user[, string password[, string host[, number port]]]])
-	Creates a connection and tries to connect/authorize to the database
+	Connection([string user[, string password[, string host[, number port]]]])
+Creates a connection and tries to connect/authorize to the database
 
-Connection.prototype.connect()
-	Connects to the database, if the first attempt wasn't successful/the connection got destroyed
+	Connection.prototype.connect()
+Connects to the database, if the first attempt wasn't successful/the connection got destroyed
 
-Connection.prototype.close(function(string err, ParseablePacket pp) cb)
-	Closes the connection to the database through the mysql_close command. Fires off the callback, after a result.
+	Connection.prototype.close(function(string err, ParseablePacket pp) cb)
+Closes the connection to the database through the mysql_close command. Fires off the callback, after a result.
 
-Connection.prototype.destroy()
-	Destroys the socket to the database immediatly. No more reads/writes will be possible.
+	Connection.prototype.destroy()
+Destroys the socket to the database immediatly. No more reads/writes will be possible.
 
-Connection.prototype.selectDb(string db, function(string err, ParseablePacket pp) callback)
-	Selects a database. Fires off callback after a result of the database.
+	Connection.prototype.selectDb(string db, function(string err, ParseablePacket pp) callback)
+Selects a database. Fires off callback after a result of the database.
 
-Connection.prototype.query(string cmd, function(string err, ParseablePacket pp) callback)
-	Sends a query to the database. Fires off callback after a result of the database.
+	Connection.prototype.query(string cmd, function(string err, ParseablePacket pp) callback)
+Sends a query to the database. Fires off callback after a result of the database.
 
 
 
 Events
 ---
-drain
-	Fired, when all querys are executed and all result sets are received.
+	drain
+Fired, when all querys are executed and all result sets are received.
 
-authenticated
-	Fired, when the authentication was successful.
+	authenticated
+Fired, when the authentication was successful.
 
-error
-	Fired, when the authentication wasn't successful (will maybe have more meanings; for example when the connection is destroyed/not accesible anymore)
+	error
+Fired, when the authentication wasn't successful (will maybe have more meanings; for example when the connection is destroyed/not accesible anymore)
