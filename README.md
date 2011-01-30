@@ -23,8 +23,8 @@ Creates a connection and tries to connect/authorize to the database
 	Connection.prototype.connect()
 Connects to the database, if the first attempt wasn't successful/the connection got destroyed
 
-	Connection.prototype.close(function(string err, ParseablePacket pp) cb)
-Closes the connection to the database through the mysql_close command. Fires off the callback, after a result.
+	Connection.prototype.close(function(string err, ParseablePacket pp) callback)
+Closes the connection to the database through the mysql_close command. Fires off callback, after a result.
 
 	Connection.prototype.destroy()
 Destroys the socket to the database immediatly. No more reads/writes will be possible.
