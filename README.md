@@ -20,16 +20,15 @@ Options
 	boolean Connection.prototype.options.bufferRows
 Decides, if rows should get buffered
 
+	boolean Connection.prototype.options.autoBox
+Converts the MySQL datatypes to javascript datatypes automatically.
+
 	{0, 1, 2} Connection.prototype.options.fetchMode
 Decides the fetchmode.
 
 * 0 ... Fetch numeric. Just a basic array. Accessible through row[0]
 * 1 ... Fetch assoc. An object, every column is a key. Accessible through row['column']
 * 2 ... Fetch array. A combination of the two above. Accessible through both ways.
-
- 
-	boolean Connection.prototype.options.autoBox
-Converts the MySQL datatypes to javascript datatypes automatically.
 
 API
 ---
