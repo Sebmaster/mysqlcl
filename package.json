@@ -1,15 +1,12 @@
 {
   "name": "mysql-client",
   "description": "A full-featured mysql client for node",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "repository": "git://github.com/Sebmaster/mysqlcl",
   "author": "Sebastian Mayr",
-  "main": "lib/Connection.js",
-  "modules": [
-  	
-  ],
+  "main": "./lib/Connection.js",
   "directories": {
-    "lib": "lib"
+    "lib": "./lib"
   },
   "engines": {
     "node": ">=0.3.1"
